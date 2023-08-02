@@ -53,50 +53,67 @@
 
 **Описание конечных точек с примерами вызовов:**
 
-Url API: <BASE_URL>/api
+Url API: _<BASE_URL>/api_
 
 1. Получить список страниц:
 
-Url: /pages
+Url: _/pages_
 
-Params: ```python { 'search': 'Значение поисковой фильтрации страниц по атрибуту title', 'page': <Номер страницы> }```
+Params: 
+```
+python 
+{ 'search': 'Значение поисковой фильтрации страниц по атрибуту title', 'page': <Номер страницы> }
+```
 
 Response:
-
-```python { "count": <Число объектов в results>, "next": '<Url следующей страницы>', "previous": '<Url предыдущей страницы>', "results": <Список страниц в виде json-данных[ { "id": <id страницы>, "title": "<Заголовок/Название страницы>", "detail_url": "<Url конечной точки с детальной информацией о странице>" }, ... ]> }```
+```
+python 
+{ "count": <Число объектов в results>, "next": '<Url следующей страницы>', "previous": '<Url предыдущей страницы>', "results": <Список страниц в виде json-данных[ { "id": <id страницы>, "title": "<Заголовок/Название страницы>", "detail_url": "<Url конечной точки с детальной информацией о странице>" }, ... ]> }
+```
 
 Example:
 
 GET /pages
 
-```python { "count": 6, "next": "http://127.0.0.1:8000/api/pages/?page=2", "previous": null, "results":[ { "id": 1, "title": "Города России","detail_url" :"http://127.0.0.1:8000/api/page/1/detail" }, { "id": 2, "title": "Future Breeze - Why Don't You Dance With Me? [1996]","detail_url": "http://127.0.0.1:8000/api/page/2/detail" }, { "id": 3, "title": "Раздел Youtube-ролики", "detail_url": "http://127.0.0.1:8000/api/page/3/detail" }, { "id": 4, "title": "Electronic", "detail_url": "http://127.0.0.1:8000/api/page/4/detail" }, { "id": 5, "title": "Dance","detail_url": "http://127.0.0.1:8000/api/page/5/detail" } ] } ```
+```
+python 
+{ "count": 6, "next": "http://127.0.0.1:8000/api/pages/?page=2", "previous": null, "results":[ { "id": 1, "title": "Города России","detail_url" :"http://127.0.0.1:8000/api/page/1/detail" }, { "id": 2, "title": "Future Breeze - Why Don't You Dance With Me? [1996]","detail_url": "http://127.0.0.1:8000/api/page/2/detail" }, { "id": 3, "title": "Раздел Youtube-ролики", "detail_url": "http://127.0.0.1:8000/api/page/3/detail" }, { "id": 4, "title": "Electronic", "detail_url": "http://127.0.0.1:8000/api/page/4/detail" }, { "id": 5, "title": "Dance","detail_url": "http://127.0.0.1:8000/api/page/5/detail" } ] } 
+```
 
 2. Получить детальную информацию о странице:
 
-Url: /page/<id>/detail
+Url: _/page/<id>/detail_
 
 Methods: GET
 
-Params: ```python { "ordering_content": <Набор атрибутов для сортировки объектов контента, привязанного к странице[ 'attr1/-attr1', ... ]>, }```
+Params: ```
+python 
+{ "ordering_content": <Набор атрибутов для сортировки объектов контента, привязанного к странице[ 'attr1/-attr1', ... ]>, }
+```
 
 где `attr1` -- сортировка по атрибуту `attr1` в порядке возврастания, `-attr1` -- сорптировка по атрибуту `attr1` в порядке убывания
 
 Response:
-
-```python { "id": <id страницы>, "content_set": <Список объектов, приваязанных к странице[ { "id": <id контента>, "title": "Название", "view_count": <Число просмотров>, "bitrate": <Количество бит в секунду -- только для контента вида аудио>, "file_link": "<Url на видео-файл> -- только для контента вида видео", "subtitles_link": "<Url на файл субтитров> -- только для контента вида видео", "content": "<Текстовое содержимое> -- только для контента вида текст" }, ... ]>, "title": "<Заголовок/Название страницы>" }```
+```
+python 
+{ "id": <id страницы>, "content_set": <Список объектов, приваязанных к странице[ { "id": <id контента>, "title": "Название", "view_count": <Число просмотров>, "bitrate": <Количество бит в секунду -- только для контента вида аудио>, "file_link": "<Url на видео-файл> -- только для контента вида видео", "subtitles_link": "<Url на файл субтитров> -- только для контента вида видео", "content": "<Текстовое содержимое> -- только для контента вида текст" }, ... ]>, "title": "<Заголовок/Название страницы>" }
+```
 
 Example:
 
 GET /page/1/detail
 
-```python { "id": 1, "content_set": [ { "id": 1, "title": "Омск", "view_count": 42, "file_link": "https://www.youtube.com/watch?v=WHPu5tmFKZQ","subtitles_link": null }, { "id": 2,"title": "Уфа", "view_count": 42, "file_link": "https://www.youtube.com/watch?v=KAnpPaF_gx0","subtitles_link": null }, { "id": 3, "title": "Описание", "view_count": 42, "content": "Обзор городов России от первого лица." } ], "title": "Города России" }```
+```
+python 
+{ "id": 1, "content_set": [ { "id": 1, "title": "Омск", "view_count": 42, "file_link": "https://www.youtube.com/watch?v=WHPu5tmFKZQ","subtitles_link": null }, { "id": 2,"title": "Уфа", "view_count": 42, "file_link": "https://www.youtube.com/watch?v=KAnpPaF_gx0","subtitles_link": null }, { "id": 3, "title": "Описание", "view_count": 42, "content": "Обзор городов России от первого лица." } ], "title": "Города России" }
+```
 
 **Запуск проекта:**
 
 - Сборка:
 
 ```
-docker-compose up -d --build
+docker-compose up --build
 ```
 
 - Автотесты:
