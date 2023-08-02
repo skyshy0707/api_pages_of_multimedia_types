@@ -59,7 +59,7 @@
 
     - Точка входа для worker: ./worker-entrypoint.sh
 
-    - Точка входа для запуска автотестов: ./autotests.sh
+    - Точка входа для запуска автотестов: ./autotests-entrypoint.sh
 
 <br>
 <br>
@@ -68,7 +68,7 @@
 
 <br>
 
-Url API: **_<BASE_URL>/api_**
+**Url API:** **_<BASE_URL>/api_**
 
 <br>
 
