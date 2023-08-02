@@ -86,7 +86,7 @@ Url API: **_<BASE_URL>/api_**
 
 &nbsp; $\color[RGB]{0,204,0}{\textsf{GET}}$ $\color[RGB]{0,0,255}{\textsf{/pages}}$
 
-&nbsp; ```json { "count": 6, "next": "http://127.0.0.1:8000/api/pages/?page=2", "previous": null, "results":[ { "id": 1, "title": "Города России","detail_url" :"http://127.0.0.1:8000/api/page/1/detail" }, { "id": 2, "title": "Future Breeze - Why Don't You Dance With Me? [1996]","detail_url": "http://127.0.0.1:8000/api/page/2/detail" }, { "id": 3, "title": "Раздел Youtube-ролики", "detail_url": "http://127.0.0.1:8000/api/page/3/detail" }, { "id": 4, "title": "Electronic", "detail_url": "http://127.0.0.1:8000/api/page/4/detail" }, { "id": 5, "title": "Dance","detail_url": "http://127.0.0.1:8000/api/page/5/detail" } ] }```
+&nbsp; ```json { "count": 6, "next": "http://127.0.0.1:8000/api/pages/?page=2", "previous": null, "results":[ { "id": 1, "title": "Города России", "detail_url" :"http://127.0.0.1:8000/api/page/1/detail" }, { "id": 2, "title": "Future Breeze - Why Don't You Dance With Me? [1996]","detail_url": "http://127.0.0.1:8000/api/page/2/detail" }, { "id": 3, "title": "Раздел Youtube-ролики", "detail_url": "http://127.0.0.1:8000/api/page/3/detail" }, { "id": 4, "title": "Electronic", "detail_url": "http://127.0.0.1:8000/api/page/4/detail" }, { "id": 5, "title": "Dance", "detail_url": "http://127.0.0.1:8000/api/page/5/detail" } ] }```
 
 <br>
 
