@@ -1,0 +1,80 @@
+version: "3.8"
+services:
+  autotests:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: /code/src/autotests-entrypoint.sh
+    expose:
+      - 8001
+    env_file:
+      ./src/.env 
+    ports:
+      - 9001:8001
+      - 8001:8001
+    tty: true
+    depends_on:
+      - db
+      - worker
+    links:
+      - db:db
+    networks:
+      - api_multimedia_types_nw
+  runserver:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: /code/src/runserver-entrypoint.sh
+    expose:
+      - 8000
+    env_file:
+      ./src/.env 
+    ports:
+      - 9000:8000
+      - 8000:8000
+    tty: true
+    depends_on:
+      - db
+      - worker
+    links:
+      - db:db
+    networks:
+      - api_multimedia_types_nw
+  worker:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: /code/src/worker-entrypoint.sh
+    env_file:
+      ./src/.env 
+    depends_on:
+      - redis
+    volumes:
+      - ./src/db:/code/src/db
+    networks:
+      - api_multimedia_types_nw
+  redis:
+    restart: unless-stopped
+    image: redis:7.2-rc
+    env_file:
+      ./src/.env 
+    expose: 
+      - 6379
+    networks:
+      - api_multimedia_types_nw
+  db:
+    image: postgres:13.4-alpine
+    restart: unless-stopped
+    env_file:
+      ./src/.env 
+    volumes:
+      - ./src/dump:/var/lib/postgres/data
+    expose:
+      - 5432
+    networks:
+      - api_multimedia_types_nw
+
+networks:
+  api_multimedia_types_nw:
+    driver: bridge

@@ -1,0 +1,7 @@
+.log
+.pid
+.pyc
+.sqlite3
+src/db/
+src/dump/
+venv/
