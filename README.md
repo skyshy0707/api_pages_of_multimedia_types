@@ -75,7 +75,7 @@ $\text{\color{violet}{Methods:} \color{green}{GET}}$
 
 Url: _/page/<id>/detail_
 
-```diff @@ Methods: @@``` ```diff + GET```
+$\color[rgb]{153, 0, 153} Methods:$ $\color[rgb]{0, 204, 0} GET$
 
 ```diff @@ Params: @@``` ```json { "ordering_content": <Набор атрибутов для сортировки объектов контента, привязанного к странице[ 'attr1/-attr1', ... ]>, }```
 
