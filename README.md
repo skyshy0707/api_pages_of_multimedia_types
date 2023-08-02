@@ -59,7 +59,7 @@ Url API: _<BASE_URL>/api_
 
 Url: _/pages_
 
-$\mathscr{\color{violet}{Methods:} \color{green}{GET}}$
+$\text{\color{violet}{Methods:} \color{green}{GET}}$
 
 ```diff @@ Params: @@``` ```json { 'search': 'Значение поисковой фильтрации страниц по атрибуту title', 'page': <Номер страницы> }```
 
