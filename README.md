@@ -76,38 +76,37 @@ Url API: **_<BASE_URL>/api_**
 
 <br>
 
-$\color[RGB]{153,0,153}{\textsf{Methods:}}$ $\color[RGB]{0,204,0}{\textsf{GET}}$
+  $\color[RGB]{153,0,153}{\textsf{Methods:}}$ $\color[RGB]{0,204,0}{\textsf{GET}}$
 
-$\color[RGB]{153,0,153}{\textsf{Params:}}$ ```{ 'search': 'Значение поисковой фильтрации страниц по атрибуту title', 'page': <Номер страницы> }```
+  $\color[RGB]{153,0,153}{\textsf{Params:}}$ ```{ 'search': 'Значение поисковой фильтрации страниц по атрибуту title', 'page': <Номер страницы> }```
 
-$\color[RGB]{153,0,153}{\textsf{Response:}}$ ```json { "count": <Число объектов в results>, "next": '<Url следующей страницы>', "previous": '<Url предыдущей страницы>', "results": <Список страниц в виде json-данных[ { "id": <id страницы>, "title": "<Заголовок/Название страницы>", "detail_url": "<Url конечной точки с детальной информацией о странице>" }, ... ]> }```
+  $\color[RGB]{153,0,153}{\textsf{Response:}}$ ```json { "count": <Число объектов в results>, "next": '<Url следующей страницы>', "previous": '<Url предыдущей страницы>', "results": <Список страниц в виде json-данных[ { "id": <id страницы>, "title": "<Заголовок/Название страницы>", "detail_url": "<Url конечной точки с детальной информацией о странице>" }, ... ]> }```
 
-$\color[RGB]{255,128,0}{\textsf{Example:}}$
+  $\color[RGB]{255,128,0}{\textsf{Example:}}$
 
-$\color[RGB]{0,204,0}{\textsf{GET}}$ $\color[RGB]{0,0,255}{\textsf{/pages}}$
+  $\color[RGB]{0,204,0}{\textsf{GET}}$ $\color[RGB]{0,0,255}{\textsf{/pages}}$
 
-```json { "count": 6, "next": "http://127.0.0.1:8000/api/pages/?page=2", "previous": null, "results":[ { "id": 1, "title": "Города России","detail_url" :"http://127.0.0.1:8000/api/page/1/detail" }, { "id": 2, "title": "Future Breeze - Why Don't You Dance With Me? [1996]","detail_url": "http://127.0.0.1:8000/api/page/2/detail" }, { "id": 3, "title": "Раздел Youtube-ролики", "detail_url": "http://127.0.0.1:8000/api/page/3/detail" }, { "id": 4, "title": "Electronic", "detail_url": "http://127.0.0.1:8000/api/page/4/detail" }, { "id": 5, "title": "Dance","detail_url": "http://127.0.0.1:8000/api/page/5/detail" } ] }```
+  ```json { "count": 6, "next": "http://127.0.0.1:8000/api/pages/?page=2", "previous": null, "results":[ { "id": 1, "title": "Города России","detail_url" :"http://127.0.0.1:8000/api/page/1/detail" }, { "id": 2, "title": "Future Breeze - Why Don't You Dance With Me? [1996]","detail_url": "http://127.0.0.1:8000/api/page/2/detail" }, { "id": 3, "title": "Раздел Youtube-ролики", "detail_url": "http://127.0.0.1:8000/api/page/3/detail" }, { "id": 4, "title": "Electronic", "detail_url": "http://127.0.0.1:8000/api/page/4/detail" }, { "id": 5, "title": "Dance","detail_url": "http://127.0.0.1:8000/api/page/5/detail" } ] }```
 
-<br>
 <br>
 
 2. $\color[RGB]{0,0,0}{\textsf{Получить детальную информацию о странице:}}$ **_/page/\<id>\/detail_**
 
 <br>
 
-$\color[RGB]{153,0,153}{\textsf{Methods:}}$ $\color[RGB]{0,204,0}{\textsf{GET}}$
+  $\color[RGB]{153,0,153}{\textsf{Methods:}}$ $\color[RGB]{0,204,0}{\textsf{GET}}$
 
-$\color[RGB]{153,0,153}{\textsf{Params:}}$ ```{ "ordering_content": <Набор атрибутов для сортировки объектов контента, привязанного к странице[ 'attr1/-attr1', ... ]>, }```
+  $\color[RGB]{153,0,153}{\textsf{Params:}}$ ```{ "ordering_content": <Набор атрибутов для сортировки объектов контента, привязанного к странице[ 'attr1/-attr1', ... ]>, }```
 
-где `attr1` -- сортировка по атрибуту `attr1` в порядке возврастания, `-attr1` -- сорптировка по атрибуту `attr1` в порядке убывания
+  где `attr1` -- сортировка по атрибуту `attr1` в порядке возврастания, `-attr1` -- сорптировка по атрибуту `attr1` в порядке убывания
 
-$\color[RGB]{153,0,153}{\textsf{Response:}}$ ```json { "id": <id страницы>, "content_set": <Список объектов, приваязанных к странице[ { "id": <id контента>, "title": "Название", "view_count": <Число просмотров>, "bitrate": <Количество бит в секунду -- только для контента вида аудио>, "file_link": "<Url на видео-файл> -- только для контента вида видео", "subtitles_link": "<Url на файл субтитров> -- только для контента вида видео", "content": "<Текстовое содержимое> -- только для контента вида текст" }, ... ]>, "title": "<Заголовок/Название страницы>" }```
+  $\color[RGB]{153,0,153}{\textsf{Response:}}$ ```json { "id": <id страницы>, "content_set": <Список объектов, приваязанных к странице[ { "id": <id контента>, "title": "Название", "view_count": <Число просмотров>, "bitrate": <Количество бит в секунду -- только для контента вида аудио>, "file_link": "<Url на видео-файл> -- только для контента вида видео", "subtitles_link": "<Url на файл субтитров> -- только для контента вида видео", "content": "<Текстовое содержимое> -- только для контента вида текст" }, ... ]>, "title": "<Заголовок/Название страницы>" }```
 
-$\color[RGB]{255,128,0}{\textsf{Example:}}$
+  $\color[RGB]{255,128,0}{\textsf{Example:}}$
 
-$\color[RGB]{0,204,0}{\textsf{GET}}$ $\color[RGB]{0,0,255}{\textsf{/page/1/detail}}$
+  $\color[RGB]{0,204,0}{\textsf{GET}}$ $\color[RGB]{0,0,255}{\textsf{/page/1/detail}}$
 
-```json { "id": 1, "content_set": [ { "id": 1, "title": "Омск", "view_count": 42, "file_link": "https://www.youtube.com/watch?v=WHPu5tmFKZQ", "subtitles_link": null }, { "id": 2,"title": "Уфа", "view_count": 42, "file_link": "https://www.youtube.com/watch?v=KAnpPaF_gx0", "subtitles_link": null }, { "id": 3, "title": "Описание", "view_count": 42, "content": "Обзор городов России от первого лица." } ], "title": "Города России" }```
+  ```json { "id": 1, "content_set": [ { "id": 1, "title": "Омск", "view_count": 42, "file_link": "https://www.youtube.com/watch?v=WHPu5tmFKZQ", "subtitles_link": null }, { "id": 2,"title": "Уфа", "view_count": 42, "file_link": "https://www.youtube.com/watch?v=KAnpPaF_gx0", "subtitles_link": null }, { "id": 3, "title": "Описание", "view_count": 42, "content": "Обзор городов России от первого лица." } ], "title": "Города России" }```
 
 <br>
 <br>
